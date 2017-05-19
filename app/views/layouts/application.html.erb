@@ -1,37 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Twitter</title>
+  <title>Crayzy SNS</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <meta charset="utf-8">
+  <meta http-equiv="content-language" content="ja">
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 </head>
-<body>
-  <header class="navbar navbar-fixed-top navbar-inverse">
-       <div class="container">
-          <%= link_to "ツイッター", '#', id: "logo" %>
-          <nav>
-            <ul class="nav navbar-nav navbar-right">
-              <%if user_signed_in?%>
-              <li><%= link_to "ツイート", new_note_path %></li>
-              <li><%= link_to "ツイート一覧", notes_path%></li>
-              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete%></li>
-              <li><%= link_to "プロフィール", user_path(current_user.id)%></li>
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+    <%= render 'layouts/header'%>
 
-              <%else%>
-              <li><%= link_to "ログイン", new_user_session_path %></li>
-              <li><%= link_to "新規登録", new_user_registration_path %></li>
-              <%end%>
-            </ul>
-          </nav>
-        </div>
-  </header>
 
-<div class = "container">
-  <div class="center jumbotron">
-    <p><%= alert%></p>
-<%= yield %>
+    <div class="content-wrapper">
+      <p><%= alert%></p>
+      <%= yield %>
+    </div>
   </div>
-</div>
+  <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"%>
+  <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/locale/ja.js"%>
+  <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.min.js"%>
 </body>
 </html>
