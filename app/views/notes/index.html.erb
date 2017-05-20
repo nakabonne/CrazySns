@@ -1,15 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<h1>ツイート一覧</h1>
+<% @notes.each do |note| %>
+<li>
 
-    <% @notes.each do |note| %>
+  <div class="timeline-item">
+    <h3 class="timeline-header"><%=image_for(note.user)%><%= link_to note.user.name, note.user%></h3>
+    <span class="time"><i class="fa fa-clock-o"></i> <%=note.created_at.strftime("%Y/%m/%d %H時%S分")%></span>
 
-        <p><%=image_for(note.user)%><%= link_to note.user.name, note.user%></p>
-        <p><%= link_to note.content, note %></p>
-        <p>-----------------------------------------------------------------------------</p>
-        <br>
+    <div class="timeline-body">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tMWkeBIohBs" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="timeline-footer">
+      <p><%= link_to note.content, note %></p>
+      <a href="#" class="btn btn-xs bg-maroon">コメントする</a>
+    </div>
+  </div>
+</li>
 
-    <% end %>
+
+<% end %>
 
 
 
