@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
+gem 'bower-rails', '0.11.0'
+gem 'font-awesome-rails'
 
 gem 'bootstrap-sass', '3.3.6'
 gem 'devise', '3.5.1'

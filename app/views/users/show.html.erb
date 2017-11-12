@@ -12,12 +12,12 @@
 <br>
 <h2><%= @title%></h2>
 <%if @title == "投稿一覧"%>
- <%= @user.notes.each do |note|%>
+ <% @user.notes.each do |note|%>
  <p><%= link_to note.content, note_path(note.id)%></p>
  <%end%>
  <h3><%= link_to "いいね一覧へ", like_notes_user_path(@user.id)%></h3>
 <%else%>
- <%= @user.like_notes.each do |note|%>
+ <% @user.like_notes.each do |note|%>
  <p><%= link_to note.content, note_path(note.id)%></p>
  <%end%>
  <h3><%= link_to "このユーザーの投稿一覧へ", user_path(@user.id)%></h3>
